@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="111111" title="111111" version_string="111111" version_id="0" url="" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <code_events/>
+  <code_event_listeners/>
+  <cron/>
+  <email_templates/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases/>
+  <route_prefixes/>
+  <style_properties/>
+  <templates/>
+  <bb_code_media_sites/>
+  <template_modifications>
+    <modification title="1111" template_title="sidebar_visitor_panel" execute_order="10" modification_type="str_replace" callback_class="" callback_method="" description="" version_id="0" version_string="111111" active="1">
+      <search_value><![CDATA[<div class="section loginButton">		
+	<div class="secondaryContent">
+		<label for="LoginControl" id="SignupButton"><a href="{xen:link login}" class="inner">{xen:if $xenOptions.registrationSetup.enabled, {xen:phrase sign_up_now}, {xen:phrase log_in}}</a></label>
+	</div>
+</div>]]></search_value>
+      <replace_value><![CDATA[<div class="section loginButton">		
+	<div class="secondaryContent">
+		<label for="LoginControl" id="SignupButton"><a href="{xen:link login}" class="inner">{xen:if $xenOptions.registrationSetup.enabled, {xen:phrase sign_up_now}, {xen:phrase log_in}}</a></label>
+
+<ol style="margin-left: 40px;">
+	<xen:if is="{$xenOptions.twitterConsumerKey}">
+		<li><a href="{xen:link register/twitter, '', 'reg=1'}" class="twitterLogin"><span>{xen:phrase social_login_with_twitter}</span></a></li>
+	</xen:if>
+	<xen:if is="{$xenOptions.vkAppId}">
+		<li><a href="{xen:link register/vk, '', 'reg=1'}" class="vkLogin"><span>{xen:phrase social_login_with_vk}</span></a></li>
+	</xen:if>
+	<xen:if is="{$xenOptions.googleAppId}">
+		<li><a href="{xen:link register/google, '', 'reg=1'}" class="googleLogin"><span>{xen:phrase social_login_with_google}</span></a></li>
+	</xen:if>
+<xen:if is="{$xenOptions.okAppId}">
+		<li><a href="{xen:link register/OK, '', 'reg=1'}" class="okLogin"><span>{xen:phrase social_login_with_ok}</span></a></li>
+</xen:if>
+</ol>
+	</div>
+</div>]]></replace_value>
+    </modification>
+  </template_modifications>
+</addon>
